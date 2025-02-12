@@ -1,0 +1,40 @@
+//
+//  AppCoordinator.swift
+//  SwiftUI-Coordinator
+//
+//  Created by Steven Santeliz on 11/2/25.
+//
+
+import SwiftUI
+
+final class AppCoordinator: Coordinator {
+    @Published var navigationPath: NavigationPath = .init()
+    
+    func start() { }
+    
+    @ViewBuilder
+    func build(for route: AppTransition) -> some View {
+        switch route {
+            case .home: HomeView()
+            case .detail: DetailView()
+            case .other: OtherView()
+        }
+    }
+}
+
+// MARK: - App Router
+
+extension AppCoordinator: AppRouter {
+    func navigate(to route: AppTransition) {
+        navigationPath.append(route)
+    }
+    
+    func pop() {
+        guard !navigationPath.isEmpty else { return }
+        navigationPath.removeLast()
+    }
+    
+    func popToLast() {
+        navigationPath.removeLast(navigationPath.count)
+    }
+}
