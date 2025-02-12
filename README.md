@@ -57,7 +57,7 @@ xed .
 To add a new screen, update `AppTransition.swift`:
 
 ```swift
-enum AppTransition: String, Identifiable, CaseIterable {
+enum AppTransition: String, Identifiable {
     case home
     case detail
     case other
@@ -131,6 +131,5 @@ func buildView(for route: AppTransition) -> some View {
 ## 🛠 Future Improvements
 ✅ Add support for **deeplinks**.  
 ✅ Implement **custom animated transitions**.  
-✅ Support **authentication-protected screens**.  
 
 
