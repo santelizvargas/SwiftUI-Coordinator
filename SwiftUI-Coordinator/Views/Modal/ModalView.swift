@@ -1,5 +1,5 @@
 //
-//  HomeView.swift
+//  ModalView.swift
 //  SwiftUI-Coordinator
 //
 //  Created by Steven Santeliz on 11/2/25.
@@ -7,20 +7,18 @@
 
 import SwiftUI
 
-struct HomeView: View {
+struct ModalView: View {
     @EnvironmentObject private var appCoordinator: AppCoordinator
     
     var body: some View {
         VStack {
-            Button("Go to detail view") {
-                appCoordinator.navigate(to: .detail)
-            }
-            .buttonStyle(.bordered)
+            Text("This is a modal view")
             
-            Button("Present popover view") {
-                appCoordinator.present(.modal)
+            Button("Dimiss", role: .destructive) {
+                appCoordinator.dismiss()
             }
             .buttonStyle(.bordered)
+            .padding()
         }
     }
 }

@@ -6,7 +6,7 @@
 //
 
 enum AppTransition: Identifiable {
-    case home, detail, other
+    case home, detail, other, modal
     
     var id: String {
         String(describing: self)

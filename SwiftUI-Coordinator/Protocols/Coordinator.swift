@@ -11,6 +11,8 @@ protocol Coordinator: ObservableObject {
     associatedtype DestinationView: View
     associatedtype Route
     
+    var associatedView: DestinationView { get }
+    
     func build(for route: Route) -> DestinationView
     func start()
 }

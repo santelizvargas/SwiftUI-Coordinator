@@ -11,6 +11,10 @@ final class AppCoordinator: Coordinator {
     @Published var navigationPath: NavigationPath = .init()
     @Published var presentedRoute: AppTransition?
     
+    lazy var associatedView: DestinationView = {
+        build(for: .home)
+    }()
+    
     func start() { }
     
     @ViewBuilder
@@ -19,6 +23,7 @@ final class AppCoordinator: Coordinator {
             case .home: HomeView()
             case .detail: DetailView()
             case .other: OtherView()
+            case .modal: ModalView()
         }
     }
 }

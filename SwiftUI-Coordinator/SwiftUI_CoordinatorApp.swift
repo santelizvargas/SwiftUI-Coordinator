@@ -13,7 +13,7 @@ struct SwiftUI_CoordinatorApp: App {
     
     var body: some Scene {
         WindowGroup {
-            MainView()
+            EntryView()
                 .environmentObject(appCoordinator)
         }
     }
