@@ -13,6 +13,6 @@ protocol Coordinator: ObservableObject {
     
     var associatedView: DestinationView { get }
     
-    func build(for route: Route) -> DestinationView
     func start()
+    func buildView(for route: Route) -> DestinationView
 }

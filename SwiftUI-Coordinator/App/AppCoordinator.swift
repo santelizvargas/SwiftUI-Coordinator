@@ -7,18 +7,20 @@
 
 import SwiftUI
 
+// MARK: - App Coordinator
+
 final class AppCoordinator: Coordinator {
     @Published var navigationPath: NavigationPath = .init()
     @Published var presentedRoute: AppTransition?
     
-    lazy var associatedView: DestinationView = {
-        build(for: .home)
-    }()
+    lazy var associatedView: DestinationView = buildView(for: .home)
     
-    func start() { }
+    func start() {
+        // Setup logic if needed, e.g., check authentication or fetch initial data.
+    }
     
     @ViewBuilder
-    func build(for route: AppTransition) -> some View {
+    func buildView(for route: AppTransition) -> some View {
         switch route {
             case .home: HomeView()
             case .detail: DetailView()
@@ -28,7 +30,7 @@ final class AppCoordinator: Coordinator {
     }
 }
 
-// MARK: - App Router
+// MARK: - Navigation Handling
 
 extension AppCoordinator: AppRouter {
     func navigate(to route: AppTransition) {

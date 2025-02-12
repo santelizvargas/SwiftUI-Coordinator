@@ -13,12 +13,18 @@ struct EntryView: View {
     var body: some View {
         NavigationStack(path: $appCoordinator.navigationPath) {
             appCoordinator.associatedView
-                .navigationDestination(for: AppTransition.self) { route in
-                    appCoordinator.build(for: route)
-                }
-                .popover(item: $appCoordinator.presentedRoute) { route in
-                    appCoordinator.build(for: route)
-                }
+                .navigationDestination(
+                    for: AppTransition.self,
+                    destination: buildView
+                )
+                .popover(
+                    item: $appCoordinator.presentedRoute,
+                    content: buildView
+                )
         }
+    }
+    
+    private func buildView(for route: AppTransition) -> some View {
+        appCoordinator.buildView(for: route)
     }
 }

@@ -5,10 +5,11 @@
 //  Created by Steven Santeliz on 11/2/25.
 //
 
-enum AppTransition: Identifiable {
-    case home, detail, other, modal
-    
-    var id: String {
-        String(describing: self)
-    }
+enum AppTransition: String, Identifiable {
+    case home
+    case detail
+    case other
+    case modal
+
+    var id: String { rawValue }
 }
