@@ -11,9 +11,16 @@ struct HomeView: View {
     @EnvironmentObject private var appCoordinator: AppCoordinator
     
     var body: some View {
-        Button("Go to detail view") {
-            appCoordinator.navigate(to: .detail)
+        VStack {
+            Button("Go to detail view") {
+                appCoordinator.navigate(to: .detail)
+            }
+            .buttonStyle(.bordered)
+            
+            Button("Present popover view") {
+                appCoordinator.present(.detail)
+            }
+            .buttonStyle(.bordered)
         }
-        .buttonStyle(.bordered)
     }
 }

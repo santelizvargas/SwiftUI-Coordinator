@@ -8,12 +8,19 @@
 import SwiftUI
 
 protocol Router {
-    associatedtype Route
+    associatedtype Route: Identifiable
     
     var navigationPath: NavigationPath { get set }
+    var presentedRoute: Route? { get set }
+    
     func navigate(to route: Route)
     func pop()
-    func popToLast()
+    func popToRoot()
+    
+    func present(_ route: Route)
+    func dismiss()
 }
+
+// MARK: - Routes
 
 protocol AppRouter: Router where Route == AppTransition { }

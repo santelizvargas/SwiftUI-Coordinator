@@ -9,6 +9,7 @@ import SwiftUI
 
 final class AppCoordinator: Coordinator {
     @Published var navigationPath: NavigationPath = .init()
+    @Published var presentedRoute: AppTransition?
     
     func start() { }
     
@@ -34,7 +35,15 @@ extension AppCoordinator: AppRouter {
         navigationPath.removeLast()
     }
     
-    func popToLast() {
+    func popToRoot() {
         navigationPath.removeLast(navigationPath.count)
+    }
+    
+    func present(_ route: AppTransition) {
+        presentedRoute = route
+    }
+    
+    func dismiss() {
+        presentedRoute = nil
     }
 }

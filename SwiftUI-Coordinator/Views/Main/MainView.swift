@@ -16,6 +16,9 @@ struct MainView: View {
                 .navigationDestination(for: AppTransition.self) { route in
                     appCoordinator.build(for: route)
                 }
+                .popover(item: $appCoordinator.presentedRoute) { route in
+                    appCoordinator.build(for: route)
+                }
         }
     }
 }

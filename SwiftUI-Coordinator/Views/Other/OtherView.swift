@@ -18,7 +18,7 @@ struct OtherView: View {
             .buttonStyle(.bordered)
             
             Button("Pop Last") {
-                appCoordinator.popToLast()
+                appCoordinator.popToRoot()
             }
             .buttonStyle(.bordered)
         }
